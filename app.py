@@ -20,10 +20,8 @@ def check_resize_save_img(
     height = int(height)
     resize = False
     if width > 800:
-        width = 800
         resize = True
     if height > 450:
-        height = 450
         resize = True
     if resize:
         image_file.thumbnail(MAX_SIZE, Image.ANTIALIAS)
@@ -32,6 +30,7 @@ def check_resize_save_img(
         y_ratio = size[1] / height
         ratio = (x_ratio, y_ratio)
     else:
+
         size = (width, height)
         ratio = (1, 1)
     image_file.save(join(final_images_folder, filename), "JPEG")
@@ -109,7 +108,9 @@ images_folder = args.imagedir
 xml_foler = args.xmldir
 final_images_folder = args.outputdir
 
-images, categories, annoations = parseXML(xml_foler, images_folder, final_images_folder)
+images, categories, annotations = parseXML(
+    xml_foler, images_folder, final_images_folder
+)
 
 d = dict()
 
@@ -118,10 +119,23 @@ dicts = []
 for c in categories:
     d1 = dict()
     d1["id"], d1["name"], d1["supercategory"] = c.get_data()
-    dicts.append(d)
-
+    dicts.append(d1)
 d["cagetories"] = dicts
-print(d)
 
-# # with open("data.json", "w", encoding="utf-8") as f:
-# #     json.dump(data, f, ensure_ascii=False, indent=4)
+dicts = []
+for i in images:
+    d1 = dict()
+    d1["id"], d1["width"], d1["height"], d1["file_name"] = i.get_data()
+    dicts.append(d1)
+d["images"] = dicts
+
+dicts = []
+for a in annotations:
+    d1 = dict()
+    d1["id"], d1["image_id"], d1["category_id"], d1["bbox"] = a.get_data()
+    dicts.append(d1)
+d["annotations"] = dicts
+
+
+with open("output.json", "w", encoding="utf-8") as f:
+    json.dump(d, f, ensure_ascii=False, indent=4)
