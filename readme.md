@@ -1,6 +1,6 @@
 # La mia soluzione al problema posto
 
-Buongiorno e grazie per il tempo dedicato alla lettura di questa soluzione. Nella storia dei commit, potete trovare la mia versione dopo due ore, la prima versione funzionante per risolvere il task al 100% e questa versione, contenente alcuni aggiustamenti e miglioramti generici.
+Buongiorno e grazie per il tempo dedicato alla lettura di questa soluzione. Nella storia dei commit, potete trovare la mia versione dopo due ore, la prima versione funzionante per risolvere il task al 100% e questa versione, contenente alcuni aggiustamenti e miglioramenti generici.
 ## Pacchetti e librerie
 Per risolvere il problema, ho utilizzato alcune librerie che dovreste trovate già installate in python 3:
 - argparse
@@ -31,6 +31,6 @@ Eventuali errori comuni (cartelle, file, ecc) dovrebbero essere gestite a livell
 - Migliore gestione eccezione
 - Logger più informativo
 - Migliore incapsulamento codice (moduli dedicati per funzioni di utilità)
-- Valutare miglioramento performance nel non usare gli oggetti, ma creando liste di dizionari già in fase di parsing
+- Valutare miglioramento performance nel non usare gli oggetti, ma creando liste di dizionari già in fase di parsing XML
 - Migliore gestione numeri decimali (magari in base a richieste di cliente/utilizzatore)
 - Aggiungere alcuni check intermedi nel caso alcuni campi del file XML non dovessero essere trovati.
